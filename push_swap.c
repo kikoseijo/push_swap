@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/17 21:30:45 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/17 22:14:59 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,35 +22,39 @@ void	ft_print_nbr(int *i)
 	ft_putchar_fd('\n', 1);
 }
 
-int	main(int argc, char const *argv[])
+void	ft_parse_nbr_vars(char *str, t_list **lst)
 {
 	int		i;
-	t_list	*stack_a;
 	t_list	*stack_tmp;
 	t_list	*stack_next;
 	char	**var_arr;
-	int		temp_number;
+	int		*temp_number;
 
-	if (argc < 2)
-		return (1);
-	var_arr = (char **)ft_split(argv[1], ' ');
+	var_arr = (char **)ft_split(str, ' ');
 	i = 0;
 	while (var_arr[i])
 	{
-		temp_number = ft_atoi(var_arr[i]);
-		stack_tmp = ft_lstnew(&temp_number);
+		temp_number = (int *)ft_calloc(1, sizeof(int));
+		*temp_number = ft_atoi(var_arr[i]);
+		stack_tmp = ft_lstnew(temp_number);
 		if (i == 0)
-		{
-			stack_a = stack_tmp;
-			stack_next = stack_tmp;
-		}
+			*lst = stack_tmp;
+		else if (i == 1)
+			(*lst)->next = stack_tmp;
 		else
-		{
 			stack_next->next = stack_tmp;
-			stack_next = stack_tmp;
-		}
+		stack_next = stack_tmp;
 		i++;
 	}
-	ft_lstiter(stack_a, (void *)(ft_print_nbr));
+}
+
+int	main(int argc, char const *argv[])
+{
+	t_list	*stack_a;
+
+	if (argc < 2)
+		return (1);
+	ft_parse_nbr_vars((char *)argv[1], &stack_a);
+	ft_lstiter((t_list *)stack_a, (void *)(ft_print_nbr));
 	return (0);
 }
