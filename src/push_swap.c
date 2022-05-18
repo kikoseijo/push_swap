@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/17 22:14:59 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/18 09:28:16 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 ** sa, sb, ss, ra, rb, rr, rra, rrb, rrr, pa, pb.
 */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 void	ft_print_nbr(int *i)
 {

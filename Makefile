@@ -6,41 +6,47 @@
 #    By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/17 19:10:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/17 19:14:58 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/18 09:32:24 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = push_swap
 
+HEAD := -I inc/
+
 FLAGS = -Wall -Wextra -Werror -g -Og
+#FLAGS = -fsanitize=address -Wall -Wextra -Werror
+#FLAGS = -Wall -Wextra -Werror
+#FLAGS = -fsanitize=address
 
-SOURCES = push_swap.c helpers.c
+SOURCES = src/push_swap.c src/helpers.c
 
-OBJECTS = $(subst .c,.o,$(SOURCES))
+OBJECTS	=	$(addprefix objs/, $(SOURCES:.c=.o))
 
-FLAGS = -Wall -Wextra -Werror
 FLAGS_DEBUG = -Wall -Wextra -Werror -g3
 INC_LIBS = -Llibft -lft
-LINKS = -I libft -L libft
+LINKS = -I libft -L libft -L inc
 
 all: $(NAME)
 
-%.o: %.c
-	gcc $(FLAGS_DEBUG) -c $< -o $@
+objs/%.o: %.c
+	@mkdir -p $(dir $@)
+	@gcc $(FLAGS) $(HEAD) -c $< -o $@
 
-$(NAME): $(OBJECTS)
-	$(MAKE) -C libft
-	gcc $(OBJECTS) $(INC_LIBS) -o $(NAME)
+$(NAME):	$(OBJECTS)
+	@$(MAKE) -C libft
+	@gcc $(OBJECTS) $(INC_LIBS) -o $(NAME)
+	@echo "Makefile: build success, happy coding!"
 
 clean:
-	rm -rf $(OBJECTS)
+	@rm -rf $(OBJECTS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean
-	$(MAKE)
+	@$(MAKE)
 
 norme:
 	norminette -R CheckForbiddenSourceHeader ${wildcard *.c} ${wildcard *.h} ${wildcard libft/*.c} ${wildcard libft/*.h}
