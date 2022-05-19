@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 23:13:26 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 23:23:09 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 {
 	int		max;
 	int		min;
+	int		len;
 	int		*stack;
 }			t_stack;
 
@@ -85,6 +86,7 @@ void		print_result(t_model *model);
 ** INITIALIZE & DESTROY
 */
 
-t_model		*initialize_model(void);
+t_model		*init_model(void);
+void		free_model(t_model *model);
 
 #endif
