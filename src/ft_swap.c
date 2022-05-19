@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:47 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 12:13:18 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:24:25 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	swap_first_two(int *arr)
 
 void	sa(t_model *model)
 {
-	swap_first_two(model->stack_a);
+	swap_first_two(model->stack_a->stack);
 	printf("%s", __func__);
 }
 
@@ -43,7 +43,7 @@ void	sa(t_model *model)
 
 void	sb(t_model *model)
 {
-	swap_first_two(model->stack_b);
+	swap_first_two(model->stack_b->stack);
 }
 
 /*
@@ -52,6 +52,6 @@ void	sb(t_model *model)
 
 void	ss(t_model *model)
 {
-	swap_first_two(model->stack_a);
-	swap_first_two(model->stack_b);
+	swap_first_two(model->stack_a->stack);
+	swap_first_two(model->stack_b->stack);
 }

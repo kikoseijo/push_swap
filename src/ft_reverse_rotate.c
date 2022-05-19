@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:37 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 12:11:57 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:23:49 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	reverse_rotate_array(int *arr)
 {
-	int	i;
 	int	len;
 	int	tmp;
 
@@ -28,7 +27,7 @@ static void	reverse_rotate_array(int *arr)
 			tmp = arr[len];
 		else
 			arr[len + 1] = arr[len];
-		i++;
+		len--;
 	}
 	arr[0] = tmp;
 }
@@ -40,7 +39,7 @@ static void	reverse_rotate_array(int *arr)
 
 void	rra(t_model *model)
 {
-	reverse_rotate_array(model->stack_a);
+	reverse_rotate_array(model->stack_a->stack);
 }
 
 /*
@@ -50,7 +49,7 @@ void	rra(t_model *model)
 
 void	rrb(t_model *model)
 {
-	reverse_rotate_array(model->stack_b);
+	reverse_rotate_array(model->stack_b->stack);
 }
 
 /*
@@ -59,6 +58,6 @@ void	rrb(t_model *model)
 
 void	rrr(t_model *model)
 {
-	reverse_rotate_array(model->stack_a);
-	reverse_rotate_array(model->stack_b);
+	reverse_rotate_array(model->stack_a->stack);
+	reverse_rotate_array(model->stack_b->stack);
 }

@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:44 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 12:12:36 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:24:16 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	rotate_array(int *arr)
 
 void	ra(t_model *model)
 {
-	rotate_array(model->stack_a);
+	rotate_array(model->stack_a->stack);
 }
 
 /*
@@ -48,7 +48,7 @@ void	ra(t_model *model)
 
 void	rb(t_model *model)
 {
-	rotate_array(model->stack_b);
+	rotate_array(model->stack_b->stack);
 }
 
 /*
@@ -57,6 +57,6 @@ void	rb(t_model *model)
 
 void	rr(t_model *model)
 {
-	rotate_array(model->stack_a);
-	rotate_array(model->stack_b);
+	rotate_array(model->stack_a->stack);
+	rotate_array(model->stack_b->stack);
 }

@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 10:27:00 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 23:13:11 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_print_nbr(int *i)
 	ft_putchar_fd('\n', 1);
 }
 
-void	ft_parse_into_arr(char *str, int *stack)
+int	ft_parse_into_arr(char *str, t_stack *stack)
 {
 	int		i;
 	char	**var_arr;
@@ -30,10 +30,15 @@ void	ft_parse_into_arr(char *str, int *stack)
 	var_arr = (char **)ft_split(str, ' ');
 	i = 0;
 	while (var_arr[i])
+		i++;
+	stack->stack = (int *)malloc((i) * sizeof(int));
+	i = 0;
+	while (var_arr[i])
 	{
-		stack[i] = ft_atoi(var_arr[i]);
+		stack->stack[i] = ft_atoi(var_arr[i]);
 		i++;
 	}
+	return (1);
 }
 
 void	ft_parse_into_lst(char *str, t_list **lst)
@@ -68,8 +73,8 @@ int	main(int argc, char const *argv[])
 
 	if (argc < 2)
 		return (1);
-	model = (t_model *)malloc(sizeof(t_model));
+	model = initialize_model();
 	ft_parse_into_arr((char *)argv[1], model->stack_a);
-	print_array(model->stack_a);
+	print_array(model->stack_a->stack);
 	return (0);
 }

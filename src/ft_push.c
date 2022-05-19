@@ -6,38 +6,46 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 13:31:51 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:24:06 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+static void	insert_first_element(int *arr, int el)
+{
+	int	i;
+	int	len;
+	int	*res;
+
+	len = sizeof(*arr) / sizeof(arr[0]) + 1;
+	res = (int *)malloc((len) * sizeof(*res));
+	res[0] = el;
+	i = 1;
+	while (i < len)
+	{
+		res[i] = arr[i - 1];
+		i++;
+	}
+	free(arr);
+	arr = res;
+}
+
 static void	push_arr_to_arr(int *arr1, int *arr2)
 {
 	int	i;
 	int	arr1_len;
-	int	arr2_len;
-	int	tmp;
 
 	i = 0;
 	arr1_len = sizeof(*arr1) / sizeof(arr1[0]);
 	if (arr1_len < 1)
 		return ;
-	while (i < arr1_len)
+	insert_first_element(arr2, arr1[0]);
+	while (i < arr1_len - 1)
 	{
-		if (i == 0)
-			tmp = arr1[i];
-		else
-			arr1[i - 1] = arr1[i];
+		arr1[i] = arr1[i + 1];
+		i++;
 	}
-	free(arr1[arr1_len - 1]);
-	arr2_len = sizeof(*arr2) / sizeof(arr2[0]);
-	while (arr2_len > 0)
-	{
-		arr2[arr2_len] = arr2[arr2_len - 1];
-		arr2_len--;
-	}
-	arr2[0] = tmp;
 }
 
 /*
@@ -48,7 +56,7 @@ static void	push_arr_to_arr(int *arr1, int *arr2)
 
 void	pa(t_model *model)
 {
-	push_arr_to_arr(model->stack_b, model->stack_a);
+	push_arr_to_arr(model->stack_b->stack, model->stack_a->stack);
 }
 
 /*
@@ -59,5 +67,5 @@ void	pa(t_model *model)
 
 void	pb(t_model *model)
 {
-	push_arr_to_arr(model->stack_a, model->stack_b);
+	push_arr_to_arr(model->stack_a->stack, model->stack_b->stack);
 }

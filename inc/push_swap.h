@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 10:23:40 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 23:13:26 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,25 @@
 
 # include "../libft/inc/libft.h"
 # include <stdio.h>
+
 /*
 ** TODO: delete unnecesary libraries.
 */
 
 # include <stdio.h>
 
+typedef struct s_stack
+{
+	int		max;
+	int		min;
+	int		*stack;
+}			t_stack;
+
 typedef struct s_model
 {
-	int		*stack_a;
-	int		*stack_b;
-	int		max_a;
-	int		min_a;
-	int		max_b;
-	int		min_b;
 	char	**operations;
-	int		next;
-
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 }			t_model;
 
 /*
@@ -78,5 +80,11 @@ void		rrr(t_model *model);
 ** PRINTING
 */
 void		print_result(t_model *model);
+
+/*
+** INITIALIZE & DESTROY
+*/
+
+t_model		*initialize_model(void);
 
 #endif
