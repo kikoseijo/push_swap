@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 09:59:52 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 10:23:40 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 
 typedef struct s_model
 {
-	int		**list_a;
-	int		**list_b;
+	int		*stack_a;
+	int		*stack_b;
 	int		max_a;
 	int		min_a;
 	int		max_b;
@@ -38,7 +38,7 @@ typedef struct s_model
 ** array_functions
 */
 
-void		print_array(int **arr);
+void		print_array(int *arr);
 int			find_element_index(int *arr, int el);
 int			insert_element_at_index(int *arr, int el, int index);
 int			delete_element(int *arr, int el);

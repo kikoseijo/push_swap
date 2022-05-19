@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 09:44:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/18 10:42:05 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 10:29:07 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,5 @@ int	delete_element(int *arr, int el)
 		arr[position] = arr[position + 1];
 		position++;
 	}
+	return (position + 1);
 }

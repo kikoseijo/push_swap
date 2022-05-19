@@ -6,7 +6,7 @@
 #    By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/17 19:10:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/18 09:32:24 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/19 13:30:12 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,13 @@ FLAGS = -Wall -Wextra -Werror -g -Og
 #FLAGS = -Wall -Wextra -Werror
 #FLAGS = -fsanitize=address
 
-SOURCES = src/push_swap.c src/helpers.c
+SOURCES = src/push_swap.c \
+					src/helpers.c \
+					src/ft_swap.c \
+					src/ft_push.c \
+					src/ft_rotate.c \
+					src/ft_reverse_rotate.c \
+					src/array_functions.c
 
 OBJECTS	=	$(addprefix objs/, $(SOURCES:.c=.o))
 

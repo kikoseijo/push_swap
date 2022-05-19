@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/18 09:28:16 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 10:27:00 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,21 @@ void	ft_print_nbr(int *i)
 	ft_putchar_fd('\n', 1);
 }
 
-void	ft_parse_nbr_vars(char *str, t_list **lst)
+void	ft_parse_into_arr(char *str, int *stack)
+{
+	int		i;
+	char	**var_arr;
+
+	var_arr = (char **)ft_split(str, ' ');
+	i = 0;
+	while (var_arr[i])
+	{
+		stack[i] = ft_atoi(var_arr[i]);
+		i++;
+	}
+}
+
+void	ft_parse_into_lst(char *str, t_list **lst)
 {
 	int		i;
 	t_list	*stack_tmp;
@@ -50,11 +64,12 @@ void	ft_parse_nbr_vars(char *str, t_list **lst)
 
 int	main(int argc, char const *argv[])
 {
-	t_list	*stack_a;
+	t_model	*model;
 
 	if (argc < 2)
 		return (1);
-	ft_parse_nbr_vars((char *)argv[1], &stack_a);
-	ft_lstiter((t_list *)stack_a, (void *)(ft_print_nbr));
+	model = (t_model *)malloc(sizeof(t_model));
+	ft_parse_into_arr((char *)argv[1], model->stack_a);
+	print_array(model->stack_a);
 	return (0);
 }
