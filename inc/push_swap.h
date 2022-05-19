@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/18 09:53:39 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/18 10:42:50 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,11 @@ typedef struct s_model
 
 void		print_array(int **arr);
 int			find_element_index(int *arr, int el);
+int			insert_element_at_index(int *arr, int el, int index);
+int			delete_element(int *arr, int el);
+
+/*
+** Program functions
+*/
 
 #endif
