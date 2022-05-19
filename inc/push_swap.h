@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/18 10:42:50 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/19 09:59:52 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,39 @@ int			insert_element_at_index(int *arr, int el, int index);
 int			delete_element(int *arr, int el);
 
 /*
-** Program functions
+** ALLOWED ALGORITHM MOVES
 */
+
+/*
+** SWAP
+*/
+void		sa(t_model *model);
+void		sb(t_model *model);
+void		ss(t_model *model);
+
+/*
+** PUSH
+*/
+void		pa(t_model *model);
+void		pb(t_model *model);
+
+/*
+** ROTATE
+*/
+void		ra(t_model *model);
+void		rb(t_model *model);
+void		rr(t_model *model);
+void		rra(t_model *model);
+void		rrb(t_model *model);
+void		rrr(t_model *model);
+
+/*
+** ALGORITH FUNCTIONS
+*/
+
+/*
+** PRINTING
+*/
+void		print_result(t_model *model);
 
 #endif
