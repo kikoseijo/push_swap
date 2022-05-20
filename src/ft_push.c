@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 00:37:18 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/20 12:48:24 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 static void	insert_first_element(t_stack *stack, int el)
 {
 	int	i;
-	int	len;
 	int	*res;
 
-	len = stack->len + 1;
-	res = (int *)malloc((len) * sizeof(*res));
+	stack->len++;
+	res = (int *)malloc((stack->len + 1) * sizeof(*res));
 	res[0] = el;
 	i = 1;
-	while (i < len)
+	while (i < stack->len)
 	{
 		res[i] = stack->stack[i - 1];
 		i++;
@@ -31,7 +30,8 @@ static void	insert_first_element(t_stack *stack, int el)
 	stack->stack = res;
 }
 
-static void	push_arr_to_arr(t_stack *stack_1, t_stack *stack_2)
+static void	push_arr_to_arr(t_stack *stack_1, t_stack *stack_2, t_model *model,
+		const char *cmd)
 {
 	int	i;
 
@@ -44,6 +44,7 @@ static void	push_arr_to_arr(t_stack *stack_1, t_stack *stack_2)
 		stack_1->stack[i] = stack_1->stack[i + 1];
 		i++;
 	}
+	operation_push(model, cmd);
 }
 
 /*
@@ -54,7 +55,7 @@ static void	push_arr_to_arr(t_stack *stack_1, t_stack *stack_2)
 
 void	pa(t_model *model)
 {
-	push_arr_to_arr(model->stack_b, model->stack_a);
+	push_arr_to_arr(model->stack_b, model->stack_a, model, __func__);
 }
 
 /*
@@ -65,5 +66,5 @@ void	pa(t_model *model)
 
 void	pb(t_model *model)
 {
-	push_arr_to_arr(model->stack_a, model->stack_b);
+	push_arr_to_arr(model->stack_a, model->stack_b, model, __func__);
 }

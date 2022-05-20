@@ -6,23 +6,40 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 09:44:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 11:15:57 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/20 15:33:54 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	print_array(int *arr)
+void	print_array(int *arr, int len, char *title)
 {
 	int	i;
 
+	if (title)
+	{
+		ft_putstr_fd("*----------------------------*\n", 1);
+		ft_putstr_fd("*-----\t     ", 1);
+		ft_putstr_fd(title, 1);
+		ft_putstr_fd(" \t-----*\n", 1);
+		ft_putstr_fd("*----------------------------*\n", 1);
+	}
+	if (arr && len)
+	{
+		ft_putstr_fd("Total(len): ", 1);
+		ft_putnbr_fd(len, 1);
+		ft_putchar_fd('\n', 1);
+	}
 	i = 0;
-	while (arr[i])
+	while (arr && arr[i])
 	{
 		ft_putnbr_fd(arr[i], 1);
 		ft_putchar_fd('\n', 1);
 		i++;
 	}
+	ft_putstr_fd("Count(i): ", 1);
+	ft_putnbr_fd(i, 1);
+	ft_putchar_fd('\n', 1);
 }
 
 int	find_element_index(int *arr, int el)

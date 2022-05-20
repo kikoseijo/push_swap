@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 11:54:14 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/20 20:10:45 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_model
 ** array_functions
 */
 
-void		print_array(int *arr);
+void		print_array(int *arr, int len, char *title);
 int			find_element_index(int *arr, int el);
 int			insert_element_at_index(int *arr, int el, int index);
 int			delete_element(int *arr, int el);
@@ -57,7 +57,7 @@ void		stack_push(t_stack *stack, int el);
 */
 
 void		operation_push(t_model *model, const char *el);
-void		print_operations(char *operations, int len);
+void		print_operations(char **operations, int len);
 
 /*
 ** ALLOWED ALGORITHM MOVES

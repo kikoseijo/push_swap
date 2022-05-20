@@ -6,13 +6,14 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:37 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 00:33:12 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/20 12:12:59 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	reverse_rotate_array(t_stack *stack)
+static void	reverse_rotate_array(t_stack *stack, t_model *model,
+		const char *cmd)
 {
 	int	len;
 	int	tmp;
@@ -30,6 +31,7 @@ static void	reverse_rotate_array(t_stack *stack)
 		len--;
 	}
 	stack->stack[0] = tmp;
+	operation_push(model, cmd);
 }
 
 /*
@@ -39,7 +41,7 @@ static void	reverse_rotate_array(t_stack *stack)
 
 void	rra(t_model *model)
 {
-	reverse_rotate_array(model->stack_a);
+	reverse_rotate_array(model->stack_a, model, __func__);
 }
 
 /*
@@ -49,7 +51,7 @@ void	rra(t_model *model)
 
 void	rrb(t_model *model)
 {
-	reverse_rotate_array(model->stack_b);
+	reverse_rotate_array(model->stack_b, model, __func__);
 }
 
 /*
@@ -58,6 +60,6 @@ void	rrb(t_model *model)
 
 void	rrr(t_model *model)
 {
-	reverse_rotate_array(model->stack_a);
-	reverse_rotate_array(model->stack_b);
+	reverse_rotate_array(model->stack_a, model, __func__);
+	reverse_rotate_array(model->stack_b, model, __func__);
 }
