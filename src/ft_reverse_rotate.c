@@ -6,30 +6,30 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:37 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 21:23:49 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/20 00:33:12 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	reverse_rotate_array(int *arr)
+static void	reverse_rotate_array(t_stack *stack)
 {
 	int	len;
 	int	tmp;
 
-	len = sizeof(*arr) / sizeof(arr[0]);
+	len = stack->len;
 	if (len < 2)
 		return ;
 	len--;
 	while (len > 0)
 	{
-		if (len + 1 == sizeof(*arr) / sizeof(arr[0]))
-			tmp = arr[len];
+		if (len + 1 == sizeof(*stack->stack) / sizeof(stack->stack[0]))
+			tmp = stack->stack[len];
 		else
-			arr[len + 1] = arr[len];
+			stack->stack[len + 1] = stack->stack[len];
 		len--;
 	}
-	arr[0] = tmp;
+	stack->stack[0] = tmp;
 }
 
 /*
@@ -39,7 +39,7 @@ static void	reverse_rotate_array(int *arr)
 
 void	rra(t_model *model)
 {
-	reverse_rotate_array(model->stack_a->stack);
+	reverse_rotate_array(model->stack_a);
 }
 
 /*
@@ -49,7 +49,7 @@ void	rra(t_model *model)
 
 void	rrb(t_model *model)
 {
-	reverse_rotate_array(model->stack_b->stack);
+	reverse_rotate_array(model->stack_b);
 }
 
 /*
@@ -58,6 +58,6 @@ void	rrb(t_model *model)
 
 void	rrr(t_model *model)
 {
-	reverse_rotate_array(model->stack_a->stack);
-	reverse_rotate_array(model->stack_b->stack);
+	reverse_rotate_array(model->stack_a);
+	reverse_rotate_array(model->stack_b);
 }

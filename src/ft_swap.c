@@ -6,23 +6,22 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:47 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 21:24:25 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/20 11:54:20 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	swap_first_two(int *arr)
+static void	swap_first_two(t_stack *stack, t_model *model, const char *cmd)
 {
-	int	len;
 	int	tmp;
 
-	len = sizeof(*arr) / sizeof(arr[0]);
-	if (len < 2)
+	if (stack->len < 2)
 		return ;
-	tmp = arr[0];
-	arr[0] = arr[1];
-	arr[1] = tmp;
+	tmp = stack->stack[0];
+	stack->stack[0] = stack->stack[1];
+	stack->stack[1] = tmp;
+	operation_push(model, cmd);
 }
 
 /*
@@ -32,8 +31,7 @@ static void	swap_first_two(int *arr)
 
 void	sa(t_model *model)
 {
-	swap_first_two(model->stack_a->stack);
-	printf("%s", __func__);
+	swap_first_two(model->stack_a, model, __func__);
 }
 
 /*
@@ -43,7 +41,7 @@ void	sa(t_model *model)
 
 void	sb(t_model *model)
 {
-	swap_first_two(model->stack_b->stack);
+	swap_first_two(model->stack_b, model, __func__);
 }
 
 /*
@@ -52,6 +50,6 @@ void	sb(t_model *model)
 
 void	ss(t_model *model)
 {
-	swap_first_two(model->stack_a->stack);
-	swap_first_two(model->stack_b->stack);
+	swap_first_two(model->stack_a, model, __func__);
+	swap_first_two(model->stack_b, model, __func__);
 }

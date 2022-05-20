@@ -6,7 +6,7 @@
 #    By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/17 19:10:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/19 23:15:42 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/20 11:29:46 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ SOURCES = src/array_functions.c \
 					src/ft_swap.c \
 					src/helpers.c \
 					src/initialize.c \
-					src/push_swap.c
+					src/op_functions.c \
+					src/push_swap.c \
+					src/stack_functions.c
 
 OBJECTS	=	$(addprefix objs/, $(SOURCES:.c=.o))
 

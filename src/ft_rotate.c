@@ -6,29 +6,29 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:44 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 21:24:16 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/20 00:31:30 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	rotate_array(int *arr)
+static void	rotate_array(t_stack *stack)
 {
 	int	i;
 	int	tmp;
 
-	if (sizeof(*arr) / sizeof(arr[0]) < 2)
+	if (stack->len < 2)
 		return ;
 	i = 0;
-	while (arr[i])
+	while (stack->stack[i])
 	{
 		if (i == 0)
-			tmp = arr[i];
+			tmp = stack->stack[i];
 		else
-			arr[i - 1] = arr[i];
+			stack->stack[i - 1] = stack->stack[i];
 		i++;
 	}
-	arr[i + 1] = tmp;
+	stack->stack[i + 1] = tmp;
 }
 
 /*
@@ -38,7 +38,7 @@ static void	rotate_array(int *arr)
 
 void	ra(t_model *model)
 {
-	rotate_array(model->stack_a->stack);
+	rotate_array(model->stack_a);
 }
 
 /*
@@ -48,7 +48,7 @@ void	ra(t_model *model)
 
 void	rb(t_model *model)
 {
-	rotate_array(model->stack_b->stack);
+	rotate_array(model->stack_b);
 }
 
 /*
@@ -57,6 +57,6 @@ void	rb(t_model *model)
 
 void	rr(t_model *model)
 {
-	rotate_array(model->stack_a->stack);
-	rotate_array(model->stack_b->stack);
+	rotate_array(model->stack_a);
+	rotate_array(model->stack_b);
 }

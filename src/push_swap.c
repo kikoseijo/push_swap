@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 00:13:09 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/20 11:29:10 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	ft_parse_into_lst(char *str, t_list **lst)
 	{
 		temp_number = (int *)ft_calloc(1, sizeof(int));
 		*temp_number = ft_atoi(var_arr[i]);
+		free(var_arr[i]);
 		stack_tmp = ft_lstnew(temp_number);
 		if (i == 0)
 			*lst = stack_tmp;
@@ -78,10 +79,20 @@ int	main(int argc, char const *argv[])
 	if (argc < 2)
 		return (1);
 	model = init_model();
-	printf("%d\n", __INT_MAX__);
-	printf("%d\n", (__INT_MAX__ * -1) - 1);
 	ft_parse_into_arr((char *)argv[1], model->stack_a);
-	print_array(model->stack_a->stack);
+	sa(model);
+	sa(model);
+	print_operations(model->operations, model->op_len);
 	free_model(model);
 	return (0);
 }
+
+/*
+** print_array(model->stack_a->stack);
+** print_array(model->stack_a->stack);
+*/
+
+/*
+** 	printf("%d\n", __INT_MAX__);
+** 	printf("%d\n", (__INT_MAX__ * -1) - 1);
+*/

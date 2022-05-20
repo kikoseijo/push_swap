@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/19 23:23:09 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/20 11:54:14 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_stack
 typedef struct s_model
 {
 	char	**operations;
+	int		op_len;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 }			t_model;
@@ -45,6 +46,18 @@ void		print_array(int *arr);
 int			find_element_index(int *arr, int el);
 int			insert_element_at_index(int *arr, int el, int index);
 int			delete_element(int *arr, int el);
+
+/*
+** stack_functions
+*/
+
+void		stack_push(t_stack *stack, int el);
+/*
+** op_functions
+*/
+
+void		operation_push(t_model *model, const char *el);
+void		print_operations(char *operations, int len);
 
 /*
 ** ALLOWED ALGORITHM MOVES
