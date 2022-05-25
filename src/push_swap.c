@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 08:11:19 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:12:05 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_parse_into_arr(char *str, t_stack *stack)
 	stack->len = 0;
 	while (var_arr[stack->len])
 		stack->len++;
-	stack->stack = (int *)malloc((stack->len + 1) * sizeof(int));
+	stack->stack = (int *)malloc(stack->len * sizeof(int));
 	i = 0;
 	while (var_arr[i])
 	{
@@ -39,7 +39,6 @@ int	ft_parse_into_arr(char *str, t_stack *stack)
 		free(var_arr[i]);
 		i++;
 	}
-	stack->stack[i] = '\0';
 	free(var_arr);
 	return (1);
 }
@@ -80,16 +79,20 @@ int	main(int argc, char const *argv[])
 		return (1);
 	model = init_model();
 	ft_parse_into_arr((char *)argv[1], model->stack_a);
+	pre_process_stack(model->stack_a);
+	manual_sort(model);
 	sort_radix(model);
 	// sb(model);
 	// ss(model);
 	// ra(model);
 	// rb(model);
-	print_operations(model->operations, model->op_len);
+	// print_operations(model->operations, model->op_len);
+	print_array(model->sorted_stack->stack, model->sorted_stack->len,
+			"Stack X");
 	print_array(model->stack_a->stack, model->stack_a->len, "Stack A");
 	print_array(model->stack_b->stack, model->stack_b->len, "Stack B");
-	free_model(model);
-	system("leaks --fullStacks push_swap");
+	// free_model(model);
+	// system("leaks --fullStacks push_swap");
 	return (0);
 }
 

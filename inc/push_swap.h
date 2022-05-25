@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 08:54:33 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/25 11:40:29 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_model
 	int		op_len;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	t_stack	*sorted_stack;
 }			t_model;
 
 /*
@@ -54,7 +55,8 @@ int			delete_element(int *arr, int el);
 ** stack_functions
 */
 
-void		stack_push(t_stack *stack, int el);
+void		manual_sort(t_model *model);
+void		pre_process_stack(t_stack *stack);
 /*
 ** op_functions
 */

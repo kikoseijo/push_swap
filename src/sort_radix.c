@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 07:39:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 08:56:16 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:26:01 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	get_max_bits(t_stack *stack)
 	stack->max_bits = 0;
 	while ((stack->max >> stack->max_bits) != 0)
 		stack->max_bits++;
-	printf("[%d]\n", stack->max_bits);
+	printf("stack->max_bits: %d\n", stack->max_bits);
 }
 
 void	sort_radix(t_model *model)
@@ -28,6 +28,7 @@ void	sort_radix(t_model *model)
 	int		i;
 	int		j;
 	int		size;
+	int		index;
 
 	stack_a = model->stack_a;
 	stack_b = model->stack_b;
@@ -39,7 +40,10 @@ void	sort_radix(t_model *model)
 		j = 0;
 		while (j < stack_a->len)
 		{
-			if (((stack_a->index >> i) & 1) == 1)
+			index = find_element_index(model->sorted_stack->stack,
+										stack_a->stack[j]);
+			printf("index:%d\n", index);
+			if (((index >> i) & 1) == 1)
 				ra(model);
 			else
 				pb(model);
