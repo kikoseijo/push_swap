@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 20:10:45 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/25 08:54:33 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 typedef struct s_stack
 {
 	int		max;
+	int		max_bits;
+	int		median;
+	int		index;
 	int		min;
 	int		len;
 	int		*stack;
@@ -62,6 +65,8 @@ void		print_operations(char **operations, int len);
 /*
 ** ALLOWED ALGORITHM MOVES
 */
+
+void		sort_radix(t_model *model);
 
 /*
 ** SWAP

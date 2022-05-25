@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 17:02:35 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/25 08:11:19 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,11 @@ int	main(int argc, char const *argv[])
 		return (1);
 	model = init_model();
 	ft_parse_into_arr((char *)argv[1], model->stack_a);
-	sa(model);
-	// pb(model);
-	// pb(model);
-	sb(model);
-	ss(model);
-	ra(model);
-	rb(model);
+	sort_radix(model);
+	// sb(model);
+	// ss(model);
+	// ra(model);
+	// rb(model);
 	print_operations(model->operations, model->op_len);
 	print_array(model->stack_a->stack, model->stack_a->len, "Stack A");
 	print_array(model->stack_b->stack, model->stack_b->len, "Stack B");

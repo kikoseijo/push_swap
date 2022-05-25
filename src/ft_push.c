@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 12:48:24 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/25 08:26:07 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	insert_first_element(t_stack *stack, int el)
 		i++;
 	}
 	free(stack->stack);
+	printf("stack->len: %d\n", stack->len);
 	stack->stack = res;
 }
 
@@ -34,16 +35,22 @@ static void	push_arr_to_arr(t_stack *stack_1, t_stack *stack_2, t_model *model,
 		const char *cmd)
 {
 	int	i;
+	int	*res;
 
 	i = 0;
 	if (stack_1->len < 1)
 		return ;
 	insert_first_element(stack_2, stack_1->stack[0]);
-	while (i < stack_1->len - 1)
+	stack_1->len--;
+	res = (int *)malloc((stack_1->len + 1) * sizeof(*res));
+	while (i < stack_1->len)
 	{
-		stack_1->stack[i] = stack_1->stack[i + 1];
+		res[i] = stack_1->stack[i + 1];
 		i++;
 	}
+	printf("stack_1->len: %d\n", stack_1->len);
+	free(stack_1->stack);
+	stack_1->stack = res;
 	operation_push(model, cmd);
 }
 
