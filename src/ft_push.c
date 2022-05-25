@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 15:24:47 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:40:47 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	insert_first_element(t_stack *stack, int el)
 	int	*res;
 
 	stack->len++;
-	res = (int *)malloc((stack->len + 1) * sizeof(*res));
+	res = (int *)ft_calloc((stack->len + 1), sizeof(int));
 	res[0] = el;
 	i = 1;
 	while (i < stack->len)
@@ -41,7 +41,7 @@ static void	push_arr_to_arr(t_stack *stack_1, t_stack *stack_2, t_model *model,
 		return ;
 	insert_first_element(stack_2, stack_1->stack[0]);
 	stack_1->len--;
-	res = (int *)malloc((stack_1->len + 1) * sizeof(*res));
+	res = (int *)ft_calloc((stack_1->len + 1), sizeof(int));
 	while (i < stack_1->len)
 	{
 		res[i] = stack_1->stack[i + 1];

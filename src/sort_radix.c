@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 07:39:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 15:26:01 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:15:05 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,14 @@ void	sort_radix(t_model *model)
 		{
 			index = find_element_index(model->sorted_stack->stack,
 										stack_a->stack[j]);
-			printf("index:%d\n", index);
 			if (((index >> i) & 1) == 1)
 				ra(model);
 			else
 				pb(model);
 			j++;
 		}
-		while (stack_b->len != 0)
-			pa(model);
+		// while (stack_b->len != 0)
+		// 	pa(model);
 		i++;
 	}
 }

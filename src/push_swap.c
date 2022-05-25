@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 17:12:05 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:23:43 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 */
 
 #include "../inc/push_swap.h"
-
-void	ft_print_nbr(int *i)
-{
-	ft_putnbr_fd(*i, 1);
-	ft_putchar_fd('\n', 1);
-}
 
 int	ft_parse_into_arr(char *str, t_stack *stack)
 {
