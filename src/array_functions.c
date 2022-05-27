@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 09:44:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/27 12:52:31 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:14:21 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,11 @@ void	print_array(int *arr, int len, char *title)
 	while (arr && arr[i])
 	{
 		ft_putnbr_fd(arr[i], 1);
-		/*
-** 		if (ft_memcmp(title, "Stack X", 7) == 0)
-** 		{
-** 			ft_putstr_fd(" i:", 1);
-** 			ft_putnbr_fd(i, 1);
-** 		}
-*/
+		if (ft_memcmp(title, "Stack X", 7) == 0)
+		{
+			ft_putstr_fd(" i:", 1);
+			ft_putnbr_fd(i, 1);
+		}
 		ft_putchar_fd('\n', 1);
 		i++;
 	}
