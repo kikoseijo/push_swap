@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/27 08:47:21 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/27 12:11:40 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	main(int argc, char const *argv[])
 	pre_process_stack(model->stack_a);
 	manual_sort(model);
 	sort_radix(model);
+	// ra(model);
 	print_operations(model->operations, model->op_len);
 	sorted_stack = model->sorted_stack->stack;
 	print_array(sorted_stack, model->sorted_stack->len, "Stack X");

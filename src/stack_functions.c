@@ -6,11 +6,38 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:16:02 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 15:13:56 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/27 12:52:14 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*
+** This function gets the best median out of the array
+** Does not work!!!!!!!!
+*/
+
+void	get_median(t_stack *stack, int sum, int len)
+{
+	int	i;
+	int	*arr;
+	int	median;
+
+	i = 0;
+	median = sum / len;
+	printf("median:%d\n", median);
+	arr = stack->stack;
+	stack->median = arr[0];
+	while (arr[i])
+	{
+		if (median - arr[i] < median - stack->median)
+			stack->median = arr[i];
+		// if (median - arr[i] > median - stack->median)
+		// 	stack->median = arr[i];
+		i++;
+	}
+	printf("stack->median:%d\n", stack->median);
+}
 
 /*
 ** This function finds max and min values;
@@ -19,32 +46,37 @@
 void	pre_process_stack(t_stack *stack)
 {
 	int	i;
+	int	sum;
 
-	i = 0;
+	i = 1;
+	sum = 0;
+	stack->min = stack->stack[0];
+	stack->max = stack->stack[0];
 	while (i < stack->len)
 	{
-		if (!stack->min || stack->min > stack->stack[i])
+		if (stack->min > stack->stack[i])
 			stack->min = stack->stack[i];
-		if (!stack->max || stack->max < stack->stack[i])
+		if (stack->max < stack->stack[i])
 			stack->max = stack->stack[i];
+		sum += stack->stack[i];
 		i++;
 	}
 }
 
-static void	initialize_sorted_stack(t_model *model, t_stack *sorted_stack)
+static void	initialize_sorted_stack(t_model *model, t_stack *stack)
 {
 	int		i;
 	t_stack	*stack_a;
 
 	stack_a = model->stack_a;
-	sorted_stack->stack = (int *)malloc((stack_a->len) * sizeof(int));
+	stack->stack = (int *)malloc((stack_a->len) * sizeof(int));
 	i = 0;
 	while (stack_a->stack[i])
 	{
-		sorted_stack->stack[i] = stack_a->stack[i];
+		stack->stack[i] = stack_a->stack[i];
 		i++;
 	}
-	sorted_stack->len = stack_a->len;
+	stack->len = stack_a->len;
 }
 
 /*
@@ -56,21 +88,21 @@ void	manual_sort(t_model *model)
 	int		i;
 	int		j;
 	int		tmp;
-	t_stack	*sorted_stack;
+	t_stack	*stack;
 
-	sorted_stack = model->sorted_stack;
-	initialize_sorted_stack(model, sorted_stack);
+	stack = model->sorted_stack;
+	initialize_sorted_stack(model, stack);
 	i = 0;
-	while (i < sorted_stack->len)
+	while (i < stack->len)
 	{
 		j = 0 + i;
-		while (j < sorted_stack->len)
+		while (j < stack->len)
 		{
-			if (sorted_stack->stack[j] < sorted_stack->stack[i])
+			if (stack->stack[j] < stack->stack[i])
 			{
-				tmp = sorted_stack->stack[i];
-				sorted_stack->stack[i] = sorted_stack->stack[j];
-				sorted_stack->stack[j] = tmp;
+				tmp = stack->stack[i];
+				stack->stack[i] = stack->stack[j];
+				stack->stack[j] = tmp;
 			}
 			j++;
 		}
