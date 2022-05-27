@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 23:05:27 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 12:38:35 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/27 08:19:42 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ t_model	*init_model(void)
 	return (model);
 }
 
+/*
+** static void	free_operations(char **op)
+** {
+** 	int	i;
+**
+** 	i = 0;
+** 	while (op[i])
+** 	{
+** 		free(op[i]);
+** 		i++;
+** 	}
+** }
+*/
+
 void	free_model(t_model *model)
 {
 	if (model->stack_a)
@@ -52,11 +66,7 @@ void	free_model(t_model *model)
 			free(model->sorted_stack->stack);
 		free(model->sorted_stack);
 	}
-	while (*model->operations)
-	{
-		free(model->operations);
-		model->operations++;
-	}
+	free(model->operations);
 	if (model)
 		free(model);
 }

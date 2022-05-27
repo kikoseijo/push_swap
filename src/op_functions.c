@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:18:01 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 12:06:52 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/27 08:40:42 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	operation_push(t_model *model, const char *el)
 	char	**res;
 	int		i;
 
-	res = (char **)malloc((model->op_len + 2) * sizeof(char *));
+	res = (char **)ft_calloc(model->op_len + 2, sizeof(char *));
 	i = 0;
 	while (i < model->op_len)
 	{
@@ -35,9 +35,15 @@ void	print_operations(char **operations, int len)
 	int	i;
 
 	i = 0;
-	while (i < len)
+	while (i < len && *operations)
 	{
-		ft_putendl_fd(operations[i], 1);
+		// ft_putendl_fd(operations[i], 1);
 		i++;
+	}
+	if (DEBUG_MODE)
+	{
+		ft_putstr_fd("Operation Count: ", 1);
+		ft_putnbr_fd(i, 1);
+		ft_putchar_fd('\n', 1);
 	}
 }

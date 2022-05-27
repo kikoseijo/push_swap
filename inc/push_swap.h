@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 11:40:29 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/27 08:12:39 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 */
 
 # include <stdio.h>
+
+# define DEBUG_MODE 1
 
 typedef struct s_stack
 {

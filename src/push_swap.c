@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/25 17:23:43 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/27 08:47:21 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_parse_into_lst(char *str, t_list **lst)
 int	main(int argc, char const *argv[])
 {
 	t_model	*model;
+	int		*sorted_stack;
 
 	if (argc < 2)
 		return (1);
@@ -76,18 +77,14 @@ int	main(int argc, char const *argv[])
 	pre_process_stack(model->stack_a);
 	manual_sort(model);
 	sort_radix(model);
-	// sb(model);
-	// ss(model);
-	// ra(model);
-	// rb(model);
-	// print_operations(model->operations, model->op_len);
-	print_array(model->sorted_stack->stack, model->sorted_stack->len,
-			"Stack X");
+	print_operations(model->operations, model->op_len);
+	sorted_stack = model->sorted_stack->stack;
+	print_array(sorted_stack, model->sorted_stack->len, "Stack X");
 	print_array(model->stack_a->stack, model->stack_a->len, "Stack A");
 	print_array(model->stack_b->stack, model->stack_b->len, "Stack B");
-	// free_model(model);
-	// system("leaks --fullStacks push_swap");
-	return (0);
+	free_model(model);
+	system("leaks --fullStacks push_swap");
+	return (EXIT_SUCCESS);
 }
 
 /*

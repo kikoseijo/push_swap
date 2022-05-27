@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:44 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 12:24:16 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/26 21:20:29 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	rotate_array(t_stack *stack, t_model *model, const char *cmd)
 			stack->stack[i - 1] = stack->stack[i];
 		i++;
 	}
-	stack->stack[i + 1] = tmp;
+	stack->stack[i - 1] = tmp;
 	operation_push(model, cmd);
 }
 
