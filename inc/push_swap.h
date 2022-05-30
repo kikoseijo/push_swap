@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/27 08:12:39 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:12:49 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <stdio.h>
 
 # define DEBUG_MODE 1
+# define ASCENDING_ORDER 1
+# define DESCENDING_ORDER 0
 
 typedef struct s_stack
 {
@@ -50,6 +52,7 @@ typedef struct s_model
 
 void		print_array(int *arr, int len, char *title);
 int			find_element_index(int *arr, int el);
+int			is_sorted_array(int *arr, int len, unsigned int order);
 int			insert_element_at_index(int *arr, int el, int index);
 int			delete_element(int *arr, int el);
 

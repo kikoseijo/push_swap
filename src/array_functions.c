@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 09:44:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/27 17:14:21 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:13:38 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,27 @@ void	print_array(int *arr, int len, char *title)
 	ft_putstr_fd("Count(i): ", 1);
 	ft_putnbr_fd(i, 1);
 	ft_putchar_fd('\n', 1);
+}
+
+int	is_sorted_array(int *arr, int len, unsigned int order)
+{
+	int	i;
+
+	i = 0;
+	while (i < len - 1)
+	{
+		if (order == ASCENDING_ORDER)
+		{
+			if (arr[i] > arr[i + 1])
+				return (0);
+		}
+		else
+		{
+			if (arr[i] < arr[i + 1])
+				return (0);
+		}
+	}
+	return (1);
 }
 
 int	find_element_index(int *arr, int el)
