@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:53:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 14:38:18 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 16:44:12 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,12 @@ static void	call_operation_by_name(char *fun_name, t_model *model)
 
 static void	process_commands(t_model *model)
 {
-	int		i;
 	char	*line;
-	char	*temp_func;
 
 	line = get_next_line(STDIN_FILENO);
 	while (ft_strchr(line, '\n'))
 	{
-		i = 0;
-		while (line[i] != '\n')
-		{
-			temp_func = ft_strjoin(temp_func, line);
-			i++;
-		}
-		i++;
-		call_operation_by_name(temp_func, model);
-		free(temp_func);
+		call_operation_by_name(line, model);
 		line = get_next_line(STDIN_FILENO);
 	}
 	if (model->stack_a->len < 1)
