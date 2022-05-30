@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 10:42:30 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:54:26 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char const **argv)
 	pre_process_stack(model->stack_a);
 	manual_sort(model);
 	sort_radix(model);
-	printf("%d\n", __INT_MAX__);
 	if (!is_sorted_array(model->stack_a->stack, model->stack_a->len,
 			ASCENDING_ORDER))
 		print_error(3);

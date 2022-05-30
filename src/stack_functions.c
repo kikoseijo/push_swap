@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:16:02 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 08:05:21 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 13:34:42 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** This function gets the best median out of the array
-** Does not work!!!!!!!!
+** This function ¡¡¡ DOES NOT WORKS !!!
 */
 
 void	get_median(t_stack *stack, int sum, int len)
@@ -32,8 +32,6 @@ void	get_median(t_stack *stack, int sum, int len)
 	{
 		if (median - arr[i] < median - stack->median)
 			stack->median = arr[i];
-		// if (median - arr[i] > median - stack->median)
-		// 	stack->median = arr[i];
 		i++;
 	}
 	printf("stack->median:%d\n", stack->median);

@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:57:13 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 10:43:23 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 12:02:57 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_parse_into_arr(char *str, t_stack *stack)
 {
 	int		i;
+	int		nb;
 	char	**var_arr;
 
 	var_arr = (char **)ft_split(str, ' ');
@@ -25,7 +26,13 @@ int	ft_parse_into_arr(char *str, t_stack *stack)
 	i = 0;
 	while (var_arr[i])
 	{
-		stack->stack[i] = ft_atoi(var_arr[i]);
+		nb = ft_atoi(var_arr[i]);
+		if ((nb == -1 || nb == 0) && ft_strlen(var_arr[i]) > 1)
+		{
+			stack->len = 0;
+			return (0);
+		}
+		stack->stack[i] = nb;
 		free(var_arr[i]);
 		i++;
 	}
@@ -36,12 +43,19 @@ int	ft_parse_into_arr(char *str, t_stack *stack)
 int	ft_parse_vars_arr(t_model *model, int argc, char **argv)
 {
 	int	i;
+	int	nb;
 
 	i = 1;
 	model->stack_a->stack = (int *)malloc(argc * sizeof(int));
 	while (i < argc)
 	{
-		model->stack_a->stack[i - 1] = ft_atoi(argv[i]);
+		nb = ft_atoi(argv[i]);
+		if ((nb == -1 || nb == 0) && ft_strlen(argv[i]) > 1)
+		{
+			model->stack_a->len = 0;
+			return (0);
+		}
+		model->stack_a->stack[i - 1] = nb;
 		model->stack_a->len++;
 		i++;
 	}
@@ -85,18 +99,14 @@ int	check_params(t_model *model)
 {
 	int		i;
 	int		j;
-	int		int_min;
 	t_stack	*stack;
 
 	i = 0;
-	int_min = __INT_MAX__ * -1 - 1;
 	stack = model->stack_a;
 	if (stack->len < 1)
 		return (0);
-	while (i < stack->len)
+	while (i < stack->len - 1)
 	{
-		if (stack->stack[i] < int_min || stack->stack[i] > __INT_MAX__)
-			return (0);
 		j = i + 1;
 		while (stack->stack[j])
 		{

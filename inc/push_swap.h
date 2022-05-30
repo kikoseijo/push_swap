@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 10:43:50 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 13:00:47 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # include <stdio.h>
 
-# define DEBUG_MODE 1
+# define DEBUG_MODE 0
 # define ASCENDING_ORDER 1
 # define DESCENDING_ORDER 0
 
