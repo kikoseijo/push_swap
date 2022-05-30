@@ -6,15 +6,15 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 07:39:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/27 17:34:33 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:03:29 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 /*
-** print_array(stack_a->stack, stack_a->len, "A");
-** print_array(model->stack_b->stack, model->stack_b->len, "b");
+** Will use model->sorted_stack index for sorting unsigned integers
+** function find_element_index gives back the index on a sorted array.
 */
 
 void	sort_radix(t_model *model)
@@ -31,13 +31,14 @@ void	sort_radix(t_model *model)
 	while (1 << i < size)
 	{
 		j = 0;
-		while (j++ < size)
+		while (j < size)
 		{
 			index = find_element_index(sorted_arr, model->stack_a->stack[0]);
 			if (((index >> i) & 1) == 1)
 				ra(model);
 			else
 				pb(model);
+			j++;
 		}
 		while (model->stack_b->len != 0)
 			pa(model);
