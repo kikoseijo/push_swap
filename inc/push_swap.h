@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 08:12:49 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:15:04 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,26 @@ int			insert_element_at_index(int *arr, int el, int index);
 int			delete_element(int *arr, int el);
 
 /*
+** Program specific Parser
+*/
+
+int			check_params(t_model *model);
+void		ft_parse_into_lst(char *str, t_list **lst);
+int			ft_parse_into_arr(char *str, t_stack *stack);
+int			ft_parse_vars_arr(t_model *model, int argc, char **argv);
+
+/*
 ** stack_functions
 */
 
 void		manual_sort(t_model *model);
 void		pre_process_stack(t_stack *stack);
+
 /*
 ** op_functions
 */
 
+void		print_error(int err_nbr);
 void		operation_push(t_model *model, const char *el);
 void		print_operations(char **operations, int len);
 

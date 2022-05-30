@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:16:02 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/27 12:52:14 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:05:21 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	get_median(t_stack *stack, int sum, int len)
 
 /*
 ** This function finds max and min values;
+** prepares the sum for get_median;
 */
 
 void	pre_process_stack(t_stack *stack)
