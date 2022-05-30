@@ -6,7 +6,7 @@
 #    By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/17 19:10:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/30 13:04:31 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/30 13:40:31 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ BONUS_SOURCES = src/array_functions.c \
 					src/ft_swap.c \
 					src/helpers.c \
 					src/initialize.c \
+					src/op_functions.c \
 					src/parser.c \
 					src/checker.c
 
@@ -50,7 +51,7 @@ FLAGS_DEBUG = -Wall -Wextra -Werror -g3
 INC_LIBS = -Llibft -lft
 LINKS = -I libft -L libft -L inc
 
-all: $(NAME)
+all: $(NAME) bonus
 
 objs/%.o: %.c
 	@mkdir -p $(dir $@)
@@ -71,9 +72,11 @@ bonus: $(BONUS_OBJECTS)
 
 clean:
 	@rm -rf $(OBJECTS)
+	@rm -rf $(BONUS_OBJECTS)
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f checker
 
 re: fclean
 	@$(MAKE)
