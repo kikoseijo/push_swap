@@ -6,7 +6,7 @@
 #    By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/17 19:10:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/30 09:57:36 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/30 13:04:31 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,18 @@ SOURCES = src/array_functions.c \
 					src/sort_radix.c \
 					src/stack_functions.c
 
+BONUS_SOURCES = src/array_functions.c \
+					src/ft_push.c \
+					src/ft_reverse_rotate.c \
+					src/ft_rotate.c \
+					src/ft_swap.c \
+					src/helpers.c \
+					src/initialize.c \
+					src/parser.c \
+					src/checker.c
+
 OBJECTS	=	$(addprefix objs/, $(SOURCES:.c=.o))
+BONUS_OBJECTS	=	$(addprefix bonus_objs/, $(BONUS_SOURCES:.c=.o))
 
 FLAGS_DEBUG = -Wall -Wextra -Werror -g3
 INC_LIBS = -Llibft -lft
@@ -45,10 +56,18 @@ objs/%.o: %.c
 	@mkdir -p $(dir $@)
 	@gcc $(FLAGS) $(HEAD) -c $< -o $@
 
+bonus_objs/%.o: %.c
+	@mkdir -p $(dir $@)
+	@gcc $(FLAGS) $(HEAD) -c $< -o $@
+
 $(NAME):	$(OBJECTS)
 	@$(MAKE) -C libft
 	@gcc $(OBJECTS) $(INC_LIBS) -o $(NAME)
 	@echo "Makefile: build success, happy coding!"
+
+bonus: $(BONUS_OBJECTS)
+	@$(MAKE) -C libft
+	@gcc $(BONUS_OBJECTS) $(INC_LIBS) -o checker
 
 clean:
 	@rm -rf $(OBJECTS)
