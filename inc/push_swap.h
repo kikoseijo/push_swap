@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 10:15:04 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:43:50 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ void		print_operations(char **operations, int len);
 ** ALLOWED ALGORITHM MOVES
 */
 
-void		sort_radix(t_model *model);
-
 /*
 ** SWAP
 */
@@ -113,10 +111,13 @@ void		rrr(t_model *model);
 ** ALGORITH FUNCTIONS
 */
 
+void		sort_radix(t_model *model);
+
 /*
-** PRINTING
+** helpers
 */
-void		print_result(t_model *model);
+
+void		ft_print_title(char *title);
 
 /*
 ** INITIALIZE & DESTROY

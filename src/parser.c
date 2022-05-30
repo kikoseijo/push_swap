@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:57:13 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 10:28:12 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:43:23 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int	check_params(t_model *model)
 		{
 			if (stack->stack[i] == stack->stack[j])
 				return (0);
+			j++;
 		}
 		i++;
 	}

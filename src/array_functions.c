@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 09:44:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 08:13:38 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:35:50 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,7 @@ void	print_array(int *arr, int len, char *title)
 {
 	int	i;
 
-	if (title)
-	{
-		ft_putstr_fd("*----------------------------*\n", 1);
-		ft_putstr_fd("*-----\t     ", 1);
-		ft_putstr_fd(title, 1);
-		ft_putstr_fd(" \t-----*\n", 1);
-		ft_putstr_fd("*----------------------------*\n", 1);
-	}
+	ft_print_title(title);
 	if (arr && len)
 	{
 		ft_putstr_fd("Total(len): ", 1);
@@ -64,6 +57,7 @@ int	is_sorted_array(int *arr, int len, unsigned int order)
 			if (arr[i] < arr[i + 1])
 				return (0);
 		}
+		i++;
 	}
 	return (1);
 }
