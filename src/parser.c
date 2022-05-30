@@ -6,13 +6,13 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:57:13 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 12:02:57 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 19:38:50 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	ft_parse_into_arr(char *str, t_stack *stack)
+int	ft_parse_str_arr(char *str, t_stack *stack)
 {
 	int		i;
 	int		nb;
@@ -29,6 +29,7 @@ int	ft_parse_into_arr(char *str, t_stack *stack)
 		nb = ft_atoi(var_arr[i]);
 		if ((nb == -1 || nb == 0) && ft_strlen(var_arr[i]) > 1)
 		{
+			// printf("str_arr int error - len:%lu.", ft_strlen(var_arr[i]));
 			stack->len = 0;
 			return (0);
 		}
@@ -40,27 +41,33 @@ int	ft_parse_into_arr(char *str, t_stack *stack)
 	return (1);
 }
 
-int	ft_parse_vars_arr(t_model *model, int argc, char **argv)
+int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
 {
 	int	i;
 	int	nb;
 
-	i = 1;
+	i = 0;
 	model->stack_a->stack = (int *)malloc(argc * sizeof(int));
+	model->stack_a->len = 0;
 	while (i < argc)
 	{
 		nb = ft_atoi(argv[i]);
-		if ((nb == -1 || nb == 0) && ft_strlen(argv[i]) > 1)
+		if ((nb == -1 || nb == 0) && ft_strlen(argv[i]) > 2)
 		{
+			// printf("ERR - len:%lu.", ft_strlen(argv[i]));
 			model->stack_a->len = 0;
 			return (0);
 		}
-		model->stack_a->stack[i - 1] = nb;
+		model->stack_a->stack[i] = nb;
 		model->stack_a->len++;
 		i++;
 	}
 	return (1);
 }
+
+/*
+** printf("nb:%d i:%d len:%d argc:%d\n", nb, i, model->stack_a->len, argc);
+*/
 
 void	ft_parse_into_lst(char *str, t_list **lst)
 {
@@ -111,7 +118,10 @@ int	check_params(t_model *model)
 		while (stack->stack[j])
 		{
 			if (stack->stack[i] == stack->stack[j])
+			{
+				printf("REPEAT - ERROR-LEN\n");
 				return (0);
+			}
 			j++;
 		}
 		i++;

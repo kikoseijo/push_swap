@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 10:54:26 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 19:36:53 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,34 +29,36 @@ static void	print_debug(t_model *model)
 	}
 }
 
-int	main(int argc, char const **argv)
+int	main(int argc, char **argv)
 {
+	int		error;
 	t_model	*model;
 
+	error = 0;
 	model = init_model();
 	if (argc < 2)
 		return (1);
 	else if (argc == 2)
-		ft_parse_into_arr((char *)argv[1], model->stack_a);
+		ft_parse_str_arr((char *)argv[1], model->stack_a);
 	else
-		ft_parse_vars_arr(model, argc, (char **)argv);
+		ft_parse_argv_arr(model, argc - 1, argv + 1);
 	if (!check_params(model))
-	{
-		print_error(2);
-	}
+		error = 2;
 	pre_process_stack(model->stack_a);
 	manual_sort(model);
 	sort_radix(model);
 	if (!is_sorted_array(model->stack_a->stack, model->stack_a->len,
 			ASCENDING_ORDER))
-		print_error(3);
+		error = 3;
 	else
 		print_operations(model->operations, model->op_len);
-	print_debug(model);
 	free_model(model);
+	if (error > 0)
+		print_error(error);
 	return (EXIT_SUCCESS);
 }
 
 /*
+** print_debug(model);
 ** system("leaks --fullStacks push_swap");
 */

@@ -8,3 +8,6 @@ kcc src/radix_sort.c && ./a.out && rm -rf a.out
 # checker_OS validator
 chmod 755 checker_Mac
 ARG="2 1 42 3 6 5 8 30 10 20 33"; ./push_swap $ARG | ./checker_Mac $ARG
+ARG=`ruby -e "puts (-50..49).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_Mac $ARG
+ARG=`ruby -e "puts (-250..249).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_Mac $ARG
+ARG=`ruby -e "puts (-500..499).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_Mac $ARG

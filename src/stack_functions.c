@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:16:02 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 13:34:42 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 19:30:03 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	initialize_sorted_stack(t_model *model, t_stack *stack)
 	stack_a = model->stack_a;
 	stack->stack = (int *)malloc((stack_a->len) * sizeof(int));
 	i = 0;
-	while (stack_a->stack[i])
+	while (i < stack_a->len)
 	{
 		stack->stack[i] = stack_a->stack[i];
 		i++;

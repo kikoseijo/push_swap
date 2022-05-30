@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:44 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/26 21:20:29 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 19:33:30 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	rotate_array(t_stack *stack, t_model *model, const char *cmd)
 	if (stack->len < 2)
 		return ;
 	i = 0;
-	while (stack->stack[i])
+	while (i < stack->len)
 	{
 		if (i == 0)
 			tmp = stack->stack[i];

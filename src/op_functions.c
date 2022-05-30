@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:18:01 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 11:24:26 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/30 17:59:08 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void	print_operations(char **operations, int len)
 void	print_error(int err_nbr)
 {
 	ft_putendl_fd("Error", STDERR_FILENO);
+	printf("%d\n", err_nbr);
 	exit(err_nbr);
 }
