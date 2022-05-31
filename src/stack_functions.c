@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:16:02 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 09:40:33 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 11:51:52 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	get_median(t_stack *stack, int sum, int len)
 ** prepares the sum for get_median;
 */
 
-void	pre_process_stack(t_stack *stack)
+void	stack_max_min(t_stack *stack)
 {
 	int	i;
 	int	sum;
@@ -107,5 +107,19 @@ void	manual_sort(t_model *model)
 		}
 		i++;
 	}
-	pre_process_stack(stack);
+	stack_max_min(stack);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->len - 1)
+	{
+		if (stack->stack[i] > stack->stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
 }

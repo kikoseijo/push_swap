@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 09:39:45 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 22:41:10 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # include <stdio.h>
 
-# define DEBUG_MODE 1
+# define DEBUG_MODE 0
 # define ASCENDING_ORDER 1
 # define DESCENDING_ORDER 0
 
@@ -51,10 +51,10 @@ typedef struct s_model
 */
 
 void		print_array(int *arr, int len, char *title);
-int			find_element_index(int *arr, int el);
+int			el_index(int *arr, int len, int el);
 int			is_sorted_array(int *arr, int len, unsigned int order);
 int			insert_element_at_index(int *arr, int el, int index);
-int			delete_element(int *arr, int el);
+int			delete_element(int *arr, int len, int el);
 
 /*
 ** Program Parser
@@ -66,8 +66,9 @@ int			parser(t_model *model, int argc, char **argv);
 ** stack_functions
 */
 
+int			is_sorted(t_stack *stack);
 void		manual_sort(t_model *model);
-void		pre_process_stack(t_stack *stack);
+void		stack_max_min(t_stack *stack);
 
 /*
 ** op_functions
@@ -109,6 +110,7 @@ void		rrr(t_model *model);
 */
 
 void		sort(t_model *model);
+void		fill_stack_back(t_model *model);
 
 /*
 ** helpers

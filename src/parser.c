@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:57:13 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 09:35:44 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 22:58:44 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,10 +122,7 @@ int	parser(t_model *model, int argc, char **argv)
 		while (stack->stack[j])
 		{
 			if (stack->stack[i] == stack->stack[j])
-			{
-				printf("REPEAT - ERROR-LEN\n");
 				return (0);
-			}
 			j++;
 		}
 		i++;

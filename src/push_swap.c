@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 09:41:35 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 22:42:08 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (!parser(model, argc, argv))
 		error = 2;
-	pre_process_stack(model->stack_a);
+	stack_max_min(model->stack_a);
 	manual_sort(model);
 	sort(model);
 	if (!is_sorted_array(model->stack_a->stack, model->stack_a->len,

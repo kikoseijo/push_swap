@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:53:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 09:45:12 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 22:56:59 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	call_operation_by_name(char *fun_name, t_model *model)
 {
-	printf("fun_name:%s\n", fun_name);
 	if (!ft_memcmp(fun_name, "sa", 2))
 		sa(model);
 	else if (!ft_memcmp(fun_name, "sb", 2))
@@ -67,7 +66,6 @@ int	main(int argc, char **argv)
 		ft_putendl_fd("ko", STDERR_FILENO);
 	else
 		ft_putendl_fd("ok", STDERR_FILENO);
-	// print_operations(model->operations, model->op_len);
 	free_model(model);
 	return (EXIT_SUCCESS);
 }

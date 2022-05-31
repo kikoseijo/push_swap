@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 09:44:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 19:28:05 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 20:01:23 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ int	is_sorted_array(int *arr, int len, unsigned int order)
 	return (1);
 }
 
-int	find_element_index(int *arr, int el)
+int	el_index(int *arr, int len, int el)
 {
 	int	i;
 
 	i = 0;
-	while (arr[i])
+	while (i < len)
 	{
 		if (arr[i] == el)
 			return (i);
@@ -87,11 +87,11 @@ int	insert_element_at_index(int *arr, int el, int index)
 	return (index + 1);
 }
 
-int	delete_element(int *arr, int el)
+int	delete_element(int *arr, int len, int el)
 {
 	int	position;
 
-	position = find_element_index(arr, el);
+	position = el_index(arr, len, el);
 	if (position == -1)
 		return (-1);
 	while (arr[position])

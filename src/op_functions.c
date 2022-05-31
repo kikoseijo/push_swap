@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:18:01 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 08:43:33 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 11:22:12 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	print_operations(char **operations, int len)
 	i = 0;
 	while (i < len && *operations)
 	{
-		// ft_putendl_fd(operations[i], 1);
+		ft_putendl_fd(operations[i], 1);
 		i++;
 	}
 	if (DEBUG_MODE)
