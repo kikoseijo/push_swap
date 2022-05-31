@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:16:02 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 19:30:03 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 09:40:33 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,5 @@ void	manual_sort(t_model *model)
 		}
 		i++;
 	}
+	pre_process_stack(stack);
 }

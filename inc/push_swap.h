@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 19:21:37 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 09:39:45 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,10 @@ int			insert_element_at_index(int *arr, int el, int index);
 int			delete_element(int *arr, int el);
 
 /*
-** Program specific Parser
+** Program Parser
 */
 
-int			check_params(t_model *model);
-void		ft_parse_into_lst(char *str, t_list **lst);
-int			ft_parse_str_arr(char *str, t_stack *stack);
-int			ft_parse_argv_arr(t_model *model, int argc, char **argv);
+int			parser(t_model *model, int argc, char **argv);
 
 /*
 ** stack_functions
@@ -111,7 +108,7 @@ void		rrr(t_model *model);
 ** ALGORITH FUNCTIONS
 */
 
-void		sort_radix(t_model *model);
+void		sort(t_model *model);
 
 /*
 ** helpers

@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:53:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 18:03:34 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 09:45:12 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,14 @@ static void	process_commands(t_model *model)
 		exit(4);
 }
 
-int	main(int argc, char const **argv)
+int	main(int argc, char **argv)
 {
 	t_model	*model;
 
 	model = init_model();
 	if (argc < 2)
 		return (1);
-	else if (argc == 2)
-		ft_parse_str_arr((char *)argv[1], model->stack_a);
-	else
-		ft_parse_argv_arr(model, argc, (char **)argv);
+	parser(model, argc, argv);
 	process_commands(model);
 	if (!is_sorted_array(model->stack_a->stack, model->stack_a->len,
 			ASCENDING_ORDER))

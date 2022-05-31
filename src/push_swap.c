@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 19:36:53 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 09:41:35 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,18 @@ int	main(int argc, char **argv)
 	model = init_model();
 	if (argc < 2)
 		return (1);
-	else if (argc == 2)
-		ft_parse_str_arr((char *)argv[1], model->stack_a);
-	else
-		ft_parse_argv_arr(model, argc - 1, argv + 1);
-	if (!check_params(model))
+	if (!parser(model, argc, argv))
 		error = 2;
 	pre_process_stack(model->stack_a);
 	manual_sort(model);
-	sort_radix(model);
+	sort(model);
 	if (!is_sorted_array(model->stack_a->stack, model->stack_a->len,
 			ASCENDING_ORDER))
 		error = 3;
 	else
 		print_operations(model->operations, model->op_len);
+	if (DEBUG_MODE)
+		print_debug(model);
 	free_model(model);
 	if (error > 0)
 		print_error(error);

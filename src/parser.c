@@ -6,13 +6,13 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:57:13 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 19:38:50 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 09:35:44 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	ft_parse_str_arr(char *str, t_stack *stack)
+static int	ft_parse_str_arr(char *str, t_stack *stack)
 {
 	int		i;
 	int		nb;
@@ -27,9 +27,9 @@ int	ft_parse_str_arr(char *str, t_stack *stack)
 	while (var_arr[i])
 	{
 		nb = ft_atoi(var_arr[i]);
-		if ((nb == -1 || nb == 0) && ft_strlen(var_arr[i]) > 1)
+		if ((nb == -1 || nb == 0) && ft_strlen(var_arr[i]) > 2)
 		{
-			// printf("str_arr int error - len:%lu.", ft_strlen(var_arr[i]));
+			printf("str_arr int error - len:%lu.", ft_strlen(var_arr[i]));
 			stack->len = 0;
 			return (0);
 		}
@@ -41,7 +41,7 @@ int	ft_parse_str_arr(char *str, t_stack *stack)
 	return (1);
 }
 
-int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
+static int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
 {
 	int	i;
 	int	nb;
@@ -54,7 +54,7 @@ int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
 		nb = ft_atoi(argv[i]);
 		if ((nb == -1 || nb == 0) && ft_strlen(argv[i]) > 2)
 		{
-			// printf("ERR - len:%lu.", ft_strlen(argv[i]));
+			printf("ERR - len:%lu.", ft_strlen(argv[i]));
 			model->stack_a->len = 0;
 			return (0);
 		}
@@ -102,14 +102,18 @@ void	ft_parse_into_lst(char *str, t_list **lst)
 ** Check that all are integer numbers
 */
 
-int	check_params(t_model *model)
+int	parser(t_model *model, int argc, char **argv)
 {
 	int		i;
 	int		j;
 	t_stack	*stack;
 
-	i = 0;
 	stack = model->stack_a;
+	if (argc == 2)
+		ft_parse_str_arr((char *)argv[1], stack);
+	else
+		ft_parse_argv_arr(model, argc - 1, argv + 1);
+	i = 0;
 	if (stack->len < 1)
 		return (0);
 	while (i < stack->len - 1)
