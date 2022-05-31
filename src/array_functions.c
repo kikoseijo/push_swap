@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 09:44:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 20:01:23 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 23:02:43 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ void	print_array(int *arr, int len, char *title)
 		ft_putchar_fd('\n', 1);
 		i++;
 	}
-	ft_putstr_fd("Count(i): ", 1);
-	ft_putnbr_fd(i, 1);
-	ft_putchar_fd('\n', 1);
 }
 
 int	is_sorted_array(int *arr, int len, unsigned int order)
