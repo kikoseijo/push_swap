@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:37 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/20 12:12:59 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/31 23:38:43 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	reverse_rotate_array(t_stack *stack, t_model *model,
 	len--;
 	while (len > 0)
 	{
-		if (len + 1 == sizeof(*stack->stack) / sizeof(stack->stack[0]))
+		if (len + 1 == stack->len)
 			tmp = stack->stack[len];
 		else
 			stack->stack[len + 1] = stack->stack[len];

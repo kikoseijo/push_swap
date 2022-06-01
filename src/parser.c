@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:57:13 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 22:58:44 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 08:45:17 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int	ft_parse_str_arr(char *str, t_stack *stack)
 		nb = ft_atoi(var_arr[i]);
 		if ((nb == -1 || nb == 0) && ft_strlen(var_arr[i]) > 2)
 		{
-			printf("str_arr int error - len:%lu.", ft_strlen(var_arr[i]));
 			stack->len = 0;
 			return (0);
 		}
@@ -54,7 +53,6 @@ static int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
 		nb = ft_atoi(argv[i]);
 		if ((nb == -1 || nb == 0) && ft_strlen(argv[i]) > 2)
 		{
-			printf("ERR - len:%lu.", ft_strlen(argv[i]));
 			model->stack_a->len = 0;
 			return (0);
 		}
@@ -64,10 +62,6 @@ static int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
 	}
 	return (1);
 }
-
-/*
-** printf("nb:%d i:%d len:%d argc:%d\n", nb, i, model->stack_a->len, argc);
-*/
 
 void	ft_parse_into_lst(char *str, t_list **lst)
 {
@@ -119,7 +113,7 @@ int	parser(t_model *model, int argc, char **argv)
 	while (i < stack->len - 1)
 	{
 		j = i + 1;
-		while (stack->stack[j])
+		while (j < stack->len)
 		{
 			if (stack->stack[i] == stack->stack[j])
 				return (0);

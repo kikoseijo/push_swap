@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 07:39:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 19:59:53 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 08:45:00 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,6 @@ static void	sort_radix(t_model *model)
 		i++;
 	}
 }
-
-/*
-** printf("i:%d j:%d\n", i, j);
-*/
 
 static void	sort_three(t_model *model)
 {

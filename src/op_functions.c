@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:18:01 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 11:22:12 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 08:44:05 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ void	print_operations(char **operations, int len)
 void	print_error(int err_nbr)
 {
 	ft_putendl_fd("Error", STDERR_FILENO);
-	printf("%d\n", err_nbr);
+	if (DEBUG_MODE)
+	{
+		ft_putstr_fd(" :", 1);
+		ft_putnbr_fd(err_nbr, 1);
+		ft_putchar_fd('\n', 1);
+	}
 	exit(err_nbr);
 }

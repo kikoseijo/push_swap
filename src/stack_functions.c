@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:16:02 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 11:51:52 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 08:45:06 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,14 @@ void	get_median(t_stack *stack, int sum, int len)
 
 	i = 0;
 	median = sum / len;
-	printf("median:%d\n", median);
 	arr = stack->stack;
 	stack->median = arr[0];
-	while (arr[i])
+	while (i < len)
 	{
 		if (median - arr[i] < median - stack->median)
 			stack->median = arr[i];
 		i++;
 	}
-	printf("stack->median:%d\n", stack->median);
 }
 
 /*
