@@ -6,13 +6,17 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:57:13 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/06/01 08:45:17 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:23:11 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int	ft_parse_str_arr(char *str, t_stack *stack)
+/*
+** Parse string into array and checks for invalid integers
+*/
+
+static int	ft_parse_str_arr(char *str, t_stack *stack, t_model *model)
 {
 	int		i;
 	int		nb;
@@ -30,7 +34,7 @@ static int	ft_parse_str_arr(char *str, t_stack *stack)
 		if ((nb == -1 || nb == 0) && ft_strlen(var_arr[i]) > 2)
 		{
 			stack->len = 0;
-			return (0);
+			print_error(model, 20);
 		}
 		stack->stack[i] = nb;
 		free(var_arr[i]);
@@ -39,6 +43,10 @@ static int	ft_parse_str_arr(char *str, t_stack *stack)
 	free(var_arr);
 	return (1);
 }
+
+/*
+** Parse arguments into array and checks for invalid integers
+*/
 
 static int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
 {
@@ -54,7 +62,7 @@ static int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
 		if ((nb == -1 || nb == 0) && ft_strlen(argv[i]) > 2)
 		{
 			model->stack_a->len = 0;
-			return (0);
+			print_error(model, 21);
 		}
 		model->stack_a->stack[i] = nb;
 		model->stack_a->len++;
@@ -63,37 +71,10 @@ static int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
 	return (1);
 }
 
-void	ft_parse_into_lst(char *str, t_list **lst)
-{
-	int		i;
-	t_list	*stack_tmp;
-	t_list	*stack_next;
-	char	**var_arr;
-	int		*temp_number;
-
-	var_arr = (char **)ft_split(str, ' ');
-	i = 0;
-	while (var_arr[i])
-	{
-		temp_number = (int *)ft_calloc(1, sizeof(int));
-		*temp_number = ft_atoi(var_arr[i]);
-		free(var_arr[i]);
-		stack_tmp = ft_lstnew(temp_number);
-		if (i == 0)
-			*lst = stack_tmp;
-		else if (i == 1)
-			(*lst)->next = stack_tmp;
-		else
-			stack_next->next = stack_tmp;
-		stack_next = stack_tmp;
-		i++;
-	}
-	free(var_arr);
-}
-
 /*
-** Check params for unique values (not being repited)
-** Check that all are integer numbers
+** Main parser
+** Parses an string or an array of arguments.
+** Also checks for duplicated values after the parse.
 */
 
 int	parser(t_model *model, int argc, char **argv)
@@ -104,7 +85,7 @@ int	parser(t_model *model, int argc, char **argv)
 
 	stack = model->stack_a;
 	if (argc == 2)
-		ft_parse_str_arr((char *)argv[1], stack);
+		ft_parse_str_arr((char *)argv[1], stack, model);
 	else
 		ft_parse_argv_arr(model, argc - 1, argv + 1);
 	i = 0;
@@ -116,7 +97,7 @@ int	parser(t_model *model, int argc, char **argv)
 		while (j < stack->len)
 		{
 			if (stack->stack[i] == stack->stack[j])
-				return (0);
+				print_error(model, 40);
 			j++;
 		}
 		i++;

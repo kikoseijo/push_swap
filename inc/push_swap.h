@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 23:21:07 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:38:00 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_model
 
 void		print_array(int *arr, int len, char *title);
 int			el_index(int *arr, int len, int el);
-int			is_sorted_array(int *arr, int len, unsigned int order);
 int			insert_element_at_index(int *arr, int el, int index);
 int			delete_element(int *arr, int len, int el);
 
@@ -74,7 +73,7 @@ void		stack_max_min(t_stack *stack);
 ** op_functions
 */
 
-void		print_error(int err_nbr);
+void		print_error(t_model *model, int err_nbr);
 void		operation_push(t_model *model, const char *el);
 void		print_operations(char **operations, int len);
 

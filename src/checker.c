@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:53:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 22:56:59 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:35:28 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	call_operation_by_name(char *fun_name, t_model *model)
 		rrb(model);
 	else if (!ft_memcmp(fun_name, "rrr", 3))
 		rrr(model);
+	else
+		print_error(model, 8);
 }
 
 static void	process_commands(t_model *model)
@@ -61,8 +63,7 @@ int	main(int argc, char **argv)
 		return (1);
 	parser(model, argc, argv);
 	process_commands(model);
-	if (!is_sorted_array(model->stack_a->stack, model->stack_a->len,
-			ASCENDING_ORDER))
+	if (!is_sorted(model->stack_a))
 		ft_putendl_fd("ko", STDERR_FILENO);
 	else
 		ft_putendl_fd("ok", STDERR_FILENO);

@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 07:39:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/06/01 08:45:00 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 08:51:17 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ void	sort(t_model *model)
 {
 	t_stack	*stack;
 
+	if (is_sorted(model->stack_a))
+		return ;
 	stack = model->stack_a;
 	if (stack->len > 5)
 		sort_radix(model);

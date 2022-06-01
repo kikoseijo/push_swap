@@ -6,11 +6,15 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:18:01 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/06/01 08:44:05 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:32:27 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*
+** Pushes a new operation into model->operations pointer of chars.
+*/
 
 void	operation_push(t_model *model, const char *el)
 {
@@ -30,6 +34,10 @@ void	operation_push(t_model *model, const char *el)
 	model->operations = res;
 }
 
+/*
+** Prints operations on standar output.
+*/
+
 void	print_operations(char **operations, int len)
 {
 	int	i;
@@ -48,14 +56,21 @@ void	print_operations(char **operations, int len)
 	}
 }
 
-void	print_error(int err_nbr)
+/*
+** Prints error on the standard error output
+** Frees the model & exits ejecution.
+*/
+
+void	print_error(t_model *model, int err_nbr)
 {
-	ft_putendl_fd("Error", STDERR_FILENO);
+	ft_putstr_fd("Error", STDERR_FILENO);
 	if (DEBUG_MODE)
 	{
-		ft_putstr_fd(" :", 1);
-		ft_putnbr_fd(err_nbr, 1);
-		ft_putchar_fd('\n', 1);
+		ft_putstr_fd(" (", STDERR_FILENO);
+		ft_putnbr_fd(err_nbr, STDERR_FILENO);
+		ft_putchar_fd(')', STDERR_FILENO);
 	}
+	ft_putchar_fd('\n', STDERR_FILENO);
+	free_model(model);
 	exit(err_nbr);
 }

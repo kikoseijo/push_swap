@@ -6,11 +6,15 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 09:44:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 23:02:43 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:38:22 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*
+** Utility function to print an array into standard output
+*/
 
 void	print_array(int *arr, int len, char *title)
 {
@@ -37,27 +41,9 @@ void	print_array(int *arr, int len, char *title)
 	}
 }
 
-int	is_sorted_array(int *arr, int len, unsigned int order)
-{
-	int	i;
-
-	i = 0;
-	while (i < len - 1)
-	{
-		if (order == ASCENDING_ORDER)
-		{
-			if (arr[i] > arr[i + 1])
-				return (0);
-		}
-		else
-		{
-			if (arr[i] < arr[i + 1])
-				return (0);
-		}
-		i++;
-	}
-	return (1);
-}
+/*
+** Finds the index of an element inside an array
+*/
 
 int	el_index(int *arr, int len, int el)
 {
@@ -73,6 +59,10 @@ int	el_index(int *arr, int len, int el)
 	return (-1);
 }
 
+/*
+** Not tested function
+*/
+
 int	insert_element_at_index(int *arr, int el, int index)
 {
 	int	capacity;
@@ -83,6 +73,10 @@ int	insert_element_at_index(int *arr, int el, int index)
 	arr[index] = el;
 	return (index + 1);
 }
+
+/*
+** Not tested function
+*/
 
 int	delete_element(int *arr, int len, int el)
 {

@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:07:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 22:42:08 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:35:56 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ int	main(int argc, char **argv)
 	stack_max_min(model->stack_a);
 	manual_sort(model);
 	sort(model);
-	if (!is_sorted_array(model->stack_a->stack, model->stack_a->len,
-			ASCENDING_ORDER))
+	if (!is_sorted(model->stack_a))
 		error = 3;
 	else
 		print_operations(model->operations, model->op_len);
 	if (DEBUG_MODE)
 		print_debug(model);
-	free_model(model);
 	if (error > 0)
-		print_error(error);
+		print_error(model, error);
+	else
+		free_model(model);
 	return (EXIT_SUCCESS);
 }
 
