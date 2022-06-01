@@ -6,7 +6,7 @@
 #    By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/17 19:10:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/06/01 12:02:27 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/06/01 13:14:04 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SOURCES = src/array_functions.c \
 					src/ft_reverse_rotate.c \
 					src/ft_rotate.c \
 					src/ft_swap.c \
-					src/helpers.c \
 					src/initialize.c \
 					src/op_functions.c \
 					src/parser.c \
@@ -39,9 +38,9 @@ BONUS_SOURCES = src/array_functions.c \
 					src/ft_reverse_rotate.c \
 					src/ft_rotate.c \
 					src/ft_swap.c \
-					src/helpers.c \
 					src/initialize.c \
 					src/op_functions.c \
+					src/stack_functions.c \
 					src/parser.c \
 					src/checker.c
 
