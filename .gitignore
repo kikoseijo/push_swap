@@ -6,6 +6,7 @@ a.out.d*
 file*
 checker
 push_swap
+push_swap_tester
 push_swap.dSYM*
 
 
