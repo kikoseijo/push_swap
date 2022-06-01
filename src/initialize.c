@@ -6,11 +6,17 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 23:05:27 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/27 08:19:42 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:58:48 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*
+** Intializes the model
+** Initializes 2 stacks for program
+** Initializes 1 stack for storing the sorted array
+*/
 
 t_model	*init_model(void)
 {
@@ -33,17 +39,7 @@ t_model	*init_model(void)
 }
 
 /*
-** static void	free_operations(char **op)
-** {
-** 	int	i;
-**
-** 	i = 0;
-** 	while (op[i])
-** 	{
-** 		free(op[i]);
-** 		i++;
-** 	}
-** }
+** Frees memory model and its content
 */
 
 void	free_model(t_model *model)
@@ -69,4 +65,21 @@ void	free_model(t_model *model)
 	free(model->operations);
 	if (model)
 		free(model);
+}
+
+/*
+** DEBUG
+*/
+
+void	print_debug(t_model *model)
+{
+	int	*sorted_stack;
+
+	if (DEBUG_MODE)
+	{
+		sorted_stack = model->sorted_stack->stack;
+		print_array(sorted_stack, model->sorted_stack->len, "Stack X");
+		print_array(model->stack_a->stack, model->stack_a->len, "Stack A");
+		print_array(model->stack_b->stack, model->stack_b->len, "Stack B");
+	}
 }

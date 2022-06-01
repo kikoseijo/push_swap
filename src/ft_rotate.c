@@ -6,11 +6,15 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:44 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/30 19:33:30 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:51:08 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*
+** ROTATE OPERATIONS SET
+*/
 
 static void	rotate_array(t_stack *stack, t_model *model, const char *cmd)
 {

@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:09:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/06/01 11:38:00 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 12:00:02 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,11 @@ void		sort(t_model *model);
 void		fill_stack_back(t_model *model);
 
 /*
-** helpers
-*/
-
-void		ft_print_title(char *title);
-
-/*
 ** INITIALIZE & DESTROY
 */
 
 t_model		*init_model(void);
 void		free_model(t_model *model);
+void		print_debug(t_model *model);
 
 #endif

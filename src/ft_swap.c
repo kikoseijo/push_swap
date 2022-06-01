@@ -6,11 +6,15 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:47 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/31 20:10:21 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:51:20 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*
+** SWAP OPERATIONS SET
+*/
 
 static void	swap_first_two(t_stack *stack, t_model *model, const char *cmd)
 {

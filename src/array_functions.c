@@ -6,11 +6,23 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 09:44:04 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/06/01 11:38:22 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:52:43 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+static void	ft_print_title(char *title)
+{
+	if (title)
+	{
+		ft_putstr_fd("*----------------------------*\n", 1);
+		ft_putstr_fd("*-----\t     ", 1);
+		ft_putstr_fd(title, 1);
+		ft_putstr_fd(" \t-----*\n", 1);
+		ft_putstr_fd("*----------------------------*\n", 1);
+	}
+}
 
 /*
 ** Utility function to print an array into standard output

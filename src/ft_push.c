@@ -6,11 +6,15 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:01:41 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/26 22:24:53 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:50:44 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*
+** PUSH OPERATIONS SET
+*/
 
 static void	insert_first_element(t_stack *stack, int el)
 {

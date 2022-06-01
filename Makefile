@@ -6,7 +6,7 @@
 #    By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/17 19:10:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/31 15:24:33 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/06/01 12:02:27 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SOURCES = src/array_functions.c \
 					src/initialize.c \
 					src/op_functions.c \
 					src/parser.c \
-					src/push_swap.c \
+					src/main.c \
 					src/sort.c \
 					src/sort_case.c \
 					src/stack_functions.c

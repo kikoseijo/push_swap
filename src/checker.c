@@ -6,11 +6,15 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:53:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/06/01 11:35:28 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:50:10 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*
+** Executes the commands or prints error if it does not finds it.
+*/
 
 static void	call_operation_by_name(char *fun_name, t_model *model)
 {
@@ -40,6 +44,11 @@ static void	call_operation_by_name(char *fun_name, t_model *model)
 		print_error(model, 8);
 }
 
+/*
+** Reads from standard input
+** process operations on model->stack_a
+*/
+
 static void	process_commands(t_model *model)
 {
 	char	*line;
@@ -53,6 +62,13 @@ static void	process_commands(t_model *model)
 	if (model->stack_a->len < 1)
 		exit(4);
 }
+
+/*
+** Aplication entry point
+** Inits model > parses and validates inputs
+** Reads and process commands from standard input
+** Prints ok or ko and frees the model.
+*/
 
 int	main(int argc, char **argv)
 {

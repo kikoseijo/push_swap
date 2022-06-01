@@ -1,7 +1,5 @@
 /.gtm/
 .on-save.json
-.main.c
-main.c
 test*
 test*
 a.out.d*
