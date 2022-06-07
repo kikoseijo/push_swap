@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:53:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/06/01 11:50:10 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/07 08:19:29 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ int	main(int argc, char **argv)
 	parser(model, argc, argv);
 	process_commands(model);
 	if (!is_sorted(model->stack_a))
-		ft_putendl_fd("ko", STDERR_FILENO);
+		ft_putendl_fd("KO", STDERR_FILENO);
 	else
-		ft_putendl_fd("ok", STDERR_FILENO);
+		ft_putendl_fd("OK", STDERR_FILENO);
 	free_model(model);
 	return (EXIT_SUCCESS);
 }
