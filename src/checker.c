@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 12:53:14 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/06/07 08:19:29 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/12 20:37:21 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,27 @@
 
 static void	call_operation_by_name(char *fun_name, t_model *model)
 {
-	if (!ft_memcmp(fun_name, "sa", 2))
+	if (!ft_memcmp(fun_name, "sa\n", 3))
 		sa(model);
-	else if (!ft_memcmp(fun_name, "sb", 2))
+	else if (!ft_memcmp(fun_name, "sb\n", 3))
 		sb(model);
-	else if (!ft_memcmp(fun_name, "ss", 2))
+	else if (!ft_memcmp(fun_name, "ss\n", 3))
 		ss(model);
-	else if (!ft_memcmp(fun_name, "pa", 2))
+	else if (!ft_memcmp(fun_name, "pa\n", 3))
 		pa(model);
-	else if (!ft_memcmp(fun_name, "pb", 2))
+	else if (!ft_memcmp(fun_name, "pb\n", 3))
 		pb(model);
-	else if (!ft_memcmp(fun_name, "ra", 2))
+	else if (!ft_memcmp(fun_name, "ra\n", 3))
 		ra(model);
-	else if (!ft_memcmp(fun_name, "rb", 2))
+	else if (!ft_memcmp(fun_name, "rb\n", 3))
 		rb(model);
-	else if (!ft_memcmp(fun_name, "rr", 2))
+	else if (!ft_memcmp(fun_name, "rr\n", 3))
 		rr(model);
-	else if (!ft_memcmp(fun_name, "rra", 3))
+	else if (!ft_memcmp(fun_name, "rra\n", 4))
 		rra(model);
-	else if (!ft_memcmp(fun_name, "rrb", 3))
+	else if (!ft_memcmp(fun_name, "rrb\n", 4))
 		rrb(model);
-	else if (!ft_memcmp(fun_name, "rrr", 3))
+	else if (!ft_memcmp(fun_name, "rrr\n", 4))
 		rrr(model);
 	else
 		print_error(model, 8);
