@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 09:57:13 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/06/01 11:23:11 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/06/12 20:46:20 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,19 @@
 /*
 ** Parse string into array and checks for invalid integers
 */
+
+static void	ft_validate_number(t_model *model, char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			print_error(model, 55);
+		i++;
+	}
+}
 
 static int	ft_parse_str_arr(char *str, t_stack *stack, t_model *model)
 {
@@ -25,7 +38,10 @@ static int	ft_parse_str_arr(char *str, t_stack *stack, t_model *model)
 	var_arr = (char **)ft_split(str, ' ');
 	stack->len = 0;
 	while (var_arr[stack->len])
+	{
+		ft_validate_number(model, var_arr[stack->len]);
 		stack->len++;
+	}
 	stack->stack = (int *)malloc(stack->len * sizeof(int));
 	i = 0;
 	while (var_arr[i])
@@ -58,6 +74,7 @@ static int	ft_parse_argv_arr(t_model *model, int argc, char **argv)
 	model->stack_a->len = 0;
 	while (i < argc)
 	{
+		ft_validate_number(model, argv[i]);
 		nb = ft_atoi(argv[i]);
 		if ((nb == -1 || nb == 0) && ft_strlen(argv[i]) > 2)
 		{
